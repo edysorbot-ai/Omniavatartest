@@ -1,5 +1,5 @@
-# Use NVIDIA CUDA base image with Python
-FROM nvidia/cuda:12.4.1-cudnn9-devel-ubuntu22.04
+# Use NVIDIA CUDA base image with Python - using a stable, verified tag
+FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
 # Set working directory
 WORKDIR /workspace
@@ -38,7 +38,7 @@ WORKDIR /workspace/OmniAvatar
 
 # Install PyTorch with CUDA support
 RUN pip install --upgrade pip && \
-    pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+    pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121
 
 # Install requirements
 RUN pip install -r requirements.txt
